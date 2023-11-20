@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import pages.*;
 
@@ -24,7 +26,7 @@ public class BaseTest {
 
     @Parameters({"browser"})
     @BeforeMethod(description = "Browser setup")
-    public void setup(@Optional("chrome") String browser) {
+    public void setup(@Optional("chrome") String browser, ITestContext iTestContext) {
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
@@ -38,6 +40,7 @@ public class BaseTest {
             options.addArguments("-headless");
             driver = new FirefoxDriver(options);
         }
+        iTestContext.setAttribute("driver", driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         loginPage = new LoginPage(driver);
