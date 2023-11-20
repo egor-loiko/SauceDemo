@@ -7,7 +7,7 @@ import static org.testng.Assert.assertTrue;
 
 public class CartTest extends BaseTest {
 
-    @Test
+    @Test(description = "Product should be added to cart")
     public void addProductsToCart() {
         loginPage.openPage();
         loginPage.login("standard_user", "secret_sauce");

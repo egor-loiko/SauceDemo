@@ -20,7 +20,7 @@ public class BaseTest {
     CheckoutOverviewPage checkoutOverviewPage;
     CheckoutCompletePage checkoutCompletePage;
 
-    @BeforeMethod
+    @BeforeMethod(description = "Browser setup")
     public void setup() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
@@ -36,7 +36,7 @@ public class BaseTest {
         checkoutCompletePage = new CheckoutCompletePage(driver);
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod(alwaysRun = true, description = "Close browser")
     public void tearDown() {
         driver.quit();
     }

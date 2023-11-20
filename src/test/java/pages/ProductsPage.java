@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProductsPage extends BasePage {
 
@@ -14,6 +15,7 @@ public class ProductsPage extends BasePage {
     }
 
     public String getPageTitleText() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(PAGE_TITLE_TEXT));
         return driver.findElement(PAGE_TITLE_TEXT).getText();
     }
 
@@ -31,5 +33,6 @@ public class ProductsPage extends BasePage {
 
     public void openShoppingCart() {
         driver.findElement(SHOPPING_CART_BUTTON).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("checkout")));
     }
 }
