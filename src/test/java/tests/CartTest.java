@@ -7,7 +7,7 @@ import static org.testng.Assert.assertTrue;
 
 public class CartTest extends BaseTest {
 
-    @Test(description = "Product should be added to cart")
+    @Test(description = "Product should be added to cart", retryAnalyzer = Retry.class)
     public void addProductsToCart() {
         loginPage.openPage();
         loginPage.login("standard_user", "secret_sauce");
@@ -20,7 +20,7 @@ public class CartTest extends BaseTest {
         assertEquals(cartPage.getProductPrice("Sauce Labs Backpack"), "$29.99", "Wrong product price");
     }
 
-    @Test
+    @Test(description = "Product should be removed from cart")
     public void removeProductsFromCart() {
         loginPage.openPage();
         loginPage.login("standard_user", "secret_sauce");
