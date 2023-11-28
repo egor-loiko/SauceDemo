@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class LocatorTest extends BaseTest {
 
-    @Test
+    @Test(description = "Utilization of various options to find locator")
     public void findDifferentLocators() {
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name"));

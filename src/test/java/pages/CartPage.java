@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +21,7 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
+    @Step("Check is Cart contains product with name '{productName}'")
     public boolean isBasketContainsProduct(String productName) {
         List<WebElement> productNamesList = driver.findElements(PRODUCT_TITLE);
         for (WebElement element : productNamesList) {
@@ -30,18 +32,22 @@ public class CartPage extends BasePage {
         return false;
     }
 
+    @Step("Removing product with name '{productName}' from Cart")
     public void removeProductFromShoppingCart(String productName) {
         driver.findElement(By.xpath(String.format(REMOVE_PRODUCT_BUTTON_TEMPLATE, productName))).click();
     }
 
+    @Step("Getting price of product with name '{productName}'")
     public String getProductPrice(String productName) {
         return driver.findElement(By.xpath(String.format(PRODUCT_PRICE_TEMPLATE, productName))).getText();
     }
 
+    @Step("Getting quantity of products in Cart")
     public int getProductsQuantityInCart() {
         return driver.findElements(PRODUCT_ITEM).size();
     }
 
+    @Step("Navigate to Checkout Information page")
     public void goToCheckout() {
         driver.findElement(CHECKOUT_BUTTON).click();
     }

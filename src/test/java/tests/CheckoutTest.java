@@ -6,7 +6,7 @@ import static org.testng.Assert.assertEquals;
 
 public class CheckoutTest extends BaseTest {
 
-    @Test
+    @Test(description = "Successful order placement")
     public void successfulOrderCreation() {
         loginPage.openPage();
         loginPage.login("standard_user", "secret_sauce");

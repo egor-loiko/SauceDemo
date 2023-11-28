@@ -6,7 +6,7 @@ import static org.testng.Assert.assertEquals;
 
 public class ProductsTest extends BaseTest {
 
-    @Test
+    @Test(description = "Add Remove button replacement for product")
     public void addRemoveButtonTitleChange() {
         loginPage.openPage();
         loginPage.login("standard_user", "secret_sauce");

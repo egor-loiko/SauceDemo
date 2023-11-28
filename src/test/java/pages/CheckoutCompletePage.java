@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -11,7 +12,10 @@ public class CheckoutCompletePage extends BasePage {
         super(driver);
     }
 
+    @Step("Getting a successful order completion text")
     public String getSuccessfulOrderCompletedText() {
+        takeScreenshot(driver);
         return driver.findElement(COMPLETED_ORDER_TEXT).getText();
+
     }
 }
