@@ -18,6 +18,7 @@ public class LoginPage extends BasePage {
     @Step("Opening login page")
     public void openPage() {
         driver.get(BASE_URL);
+        takeScreenshot(driver);
     }
 
     @Step("Login by '{userName}' with password '{password}'")
@@ -25,8 +26,10 @@ public class LoginPage extends BasePage {
         driver.findElement(USERNAME_INPUT).sendKeys(userName);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
+        takeScreenshot(driver);
     }
 
+    @Step("Getting the error message text")
     public String getErrorMessageText() {
         return driver.findElement(ERROR_MESSAGE).getText();
     }

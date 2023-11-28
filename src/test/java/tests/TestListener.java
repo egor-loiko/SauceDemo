@@ -24,6 +24,7 @@ public class TestListener implements ITestListener {
                 getExecutionTime(iTestResult)));
         WebDriver driver = (WebDriver) iTestResult.getTestContext().getAttribute("driver");
         takeScreenshot(driver);
+        System.out.println("On PASS");
     }
 
     @Override
@@ -32,6 +33,7 @@ public class TestListener implements ITestListener {
                 getExecutionTime(iTestResult)));
         WebDriver driver = (WebDriver) iTestResult.getTestContext().getAttribute("driver");
         takeScreenshot(driver);
+        System.out.println("On fail");
     }
 
     @Override
@@ -59,7 +61,8 @@ public class TestListener implements ITestListener {
     }
 
     @Attachment(value = "screenshot", type = "image/png")
-    private byte[] takeScreenshot(WebDriver driver){
+    private byte[] takeScreenshot(WebDriver driver) {
+        System.out.println("Take screenshot");
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }
