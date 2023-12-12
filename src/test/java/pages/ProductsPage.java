@@ -33,7 +33,6 @@ public class ProductsPage extends BasePage {
 
     @Step("Getting button title for product with name '{productName}'")
     public String getProductButtonTitle(String productName) {
-        takeScreenshot(driver);
         return driver.findElement(By.xpath(String.format(ADD_TO_CART_PATTER, productName))).getText();
     }
 
@@ -41,6 +40,5 @@ public class ProductsPage extends BasePage {
     public void openShoppingCart() {
         driver.findElement(SHOPPING_CART_BUTTON).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("checkout")));
-        takeScreenshot(driver);
     }
 }

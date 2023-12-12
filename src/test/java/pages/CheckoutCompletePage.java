@@ -14,8 +14,6 @@ public class CheckoutCompletePage extends BasePage {
 
     @Step("Getting a successful order completion text")
     public String getSuccessfulOrderCompletedText() {
-        takeScreenshot(driver);
         return driver.findElement(COMPLETED_ORDER_TEXT).getText();
-
     }
 }

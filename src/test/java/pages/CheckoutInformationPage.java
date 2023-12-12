@@ -20,7 +20,6 @@ public class CheckoutInformationPage extends BasePage {
         driver.findElement(FIRST_NAME_INPUT).sendKeys(firstName);
         driver.findElement(LAST_NAME_INPUT).sendKeys(lastName);
         driver.findElement(ZIP_CODE_INPUT).sendKeys(zipCode);
-        takeScreenshot(driver);
     }
 
     @Step("Navigate to Checkout Overview page")
