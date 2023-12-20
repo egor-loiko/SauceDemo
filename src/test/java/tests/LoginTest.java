@@ -26,10 +26,6 @@ public class LoginTest extends BaseTest {
 
     @Test(description = "login test using data provider", dataProvider = "loginData")
     public void negativeLogin(String user, String password, String expectedError) {
-        System.out.println(user);
-        System.out.println(password);
-        System.out.println(expectedError);
-        System.out.println("----------------------------------");
         loginPage.openPage();
         loginPage.login(user, password);
         assertEquals(loginPage.getErrorMessageText(), expectedError, "Not appropriate or absent validation message");
